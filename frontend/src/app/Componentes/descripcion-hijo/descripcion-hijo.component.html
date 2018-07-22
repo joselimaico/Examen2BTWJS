@@ -1,0 +1,58 @@
+<div *ngIf="hijo">
+  <div class="row mt-5" *ngIf="!hijo.cart">
+    <div class="col-md-12 mb-3" >
+      <div class="card  text-center"  >
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-6">
+              <img class="card-img-top" src="{{hijo.img}}" width="200" height="250" alt="imagen app">
+            </div>
+            <div class="col-sm-6">
+              <h1 class="card-title">{{hijo.name| uppercase}}</h1>
+              <p class="card-text">Versión: {{hijo.version}}</p>
+              <p class="card-text">Fecha Lanzamiento: {{hijo.date}}</p>
+              <p class="card-text">Peso GB: {{hijo.weight}}</p>
+              <p class="card-text">Precio: {{hijo.price|currency}}</p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-sm-6 pt-5">
+        <button mat-raised-button (click)="goBack()">regresar</button>
+      </div>
+      <div class="col-sm-6 pt-5" >
+        <button mat-raised-button color="primary" (click)="comprar()">Añadir al Carrito</button>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<div *ngIf="hijo">
+
+  <div class="row mt-5" *ngIf="hijo.cart">
+    <div class="col-sm-6">
+      <mat-icon>sentiment_very_dissatisfied</mat-icon>
+
+    </div>
+    <div class="col-sm-6 texto">
+      <h1>no disponible</h1>
+    </div>
+
+    <div class="col-sm-4">
+      <button mat-raised-button (click)="goBack()">regresar</button>
+    </div>
+
+  </div>
+
+</div>
+

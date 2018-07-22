@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row pt-5">
+
+    <div class=" col-md-12 " id="home-component">
+      <input #searchBox id="search-box" (keyup)="search(searchBox.value)" class="form-control"
+             placeholder="Buscar..." />
+    </div>
+
+
+
+      <div class="col-sm-4 mb-3 pt-5" *ngFor="let padre of padres$ | async; let indice=index">
+
+            <!--<div *ngIf="indice<=2">-->
+              <div class="card  text-center" (click)="mostrarDetallePadre(padre)" >
+                <div class="card-body">
+                  <h5 class="card-title">{{padre.name}}</h5>
+                  <img class="card-img-top" src="{{padre.img}}" height="100" width="180" alt="imagen SO">
+                  <p class="card-text">{{padre.api}}</p>
+                </div>
+                <div class="card-footer text-muted">
+                  fecha lanzamiento: {{padre.date }}
+                </div>
+              </div>
+            <!--</div>-->
+
+      </div>
+
+    <div class="col-sm-4 mb-3 pt-5" *ngFor="let hijo of hijos$ | async" >
+      <div class="card text-center"(click)="mostrarDetalleHijo(hijo)">
+        <div class="card-body">
+          <h5 class="card-title">{{hijo.name}}</h5>
+          <img class="card-img-top" src="{{hijo.img}}" alt="imagen app" height="100" width="180">
+          <p class="card-text">Versión: {{hijo.version}}</p>
+          <!--<a href="#" class="btn btn-success">Buy Tickets</a>-->
+        </div>
+        <div class="card-footer text-muted">
+          {{hijo.price | currency}}
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="flag">
+      <app-padre></app-padre>
+    </div>
+
+    <div *ngIf="flag">
+      <app-hijo></app-hijo>
+    </div>
+
+  </div>
+
+
+</div>

@@ -1,0 +1,53 @@
+<div class="row mt-5" *ngIf="padre">
+  <div class="col-md-12 mb-3" >
+    <div class="card  text-center"  >
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-6">
+            <h1 class="card-title">{{padre.name| uppercase}}</h1>
+            <p class="card-text">Versión API: {{padre.api}}</p>
+            <p class="card-text">Fecha Lanzamiento: {{padre.date}}</p>
+            <p class="card-text">Peso GB: {{padre.weight}}</p>
+            <p class="card-text">Instalado: {{padre.installed}}</p>
+          </div>
+          <div class="col-sm-6">
+            <img class="card-img-top" src="{{padre.img}}" height="250" width="250" alt="imagen SO">
+
+          </div>
+        </div>
+
+
+        <!--<a href="#" class="btn btn-primary">Buy Tickets</a>-->
+      </div>
+
+    </div>
+
+  </div>
+  <!--<div class="col-sm-12">-->
+    <!--hola-->
+    <!--<app-hijo></app-hijo>-->
+  <!--</div>-->
+    <div class="col-md-3 mb-3" *ngFor="let hijo of padre.apps">
+      <div class="card text-center"(click)="mostrarDetalleHijo(hijo)">
+        <div class="card-body">
+          <h5 class="card-title">{{hijo.name}}</h5>
+          <img class="card-img-top" src="{{hijo.img}}" height="180" width="286" alt="imagen app">
+          <p class="card-text">Versión: {{hijo.version}}</p>
+          <!--<a href="#" class="btn btn-success">Buy Tickets</a>-->
+        </div>
+        <div class="card-footer text-muted">
+          {{hijo.price | currency}}
+        </div>
+      </div>
+    </div>
+
+
+</div>
+<div class="row pt-2">
+  <div class="col-sm-4">
+    <button mat-raised-button (click)="goBack()">regresar</button>
+    <br>
+  </div>
+
+</div>
+

@@ -1,0 +1,40 @@
+<div class="row mt-5" >
+  <div class="col-md-3 mb-2" *ngFor="let hijo of hijos,let indice=index">
+    <div class="card text-center"(click)="mostrarDetalleHijo(hijo)" *ngIf="indice<=5">
+      <div class="card-body">
+        <h5 class="card-title">{{hijo.name}}</h5>
+        <img class="card-img-top" src="{{hijo.img}}" alt="imagen app" height="180" width="286">
+        <p class="card-text">Versión: {{hijo.version}}</p>
+        <!--<a href="#" class="btn btn-success">Buy Tickets</a>-->
+      </div>
+      <div class="card-footer text-muted">
+        {{hijo.price | currency}}
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="row">
+  <div class="col-md-3 mb-2" *ngFor="let hijo of hijos;let indice=index"[ngbCollapse]="isCollapsed">
+    <div class="card text-center"(click)="mostrarDetalleHijo(hijo)" *ngIf="indice>5" >
+      <div class="card-body">
+        <h5 class="card-title">{{hijo.name}}</h5>
+        <img class="card-img-top" src="{{hijo.img}}" alt="imagen app" height="180" width="286">
+        <p class="card-text">Versión: {{hijo.version}}</p>
+        <!--<a href="#" class="btn btn-success">Buy Tickets</a>-->
+      </div>
+      <div class="card-footer text-muted">
+        {{hijo.price | currency}}
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row ">
+  <div *ngIf="hijos">
+    <div class="col-sm-4" *ngIf="hijos.length>5">
+      <button mat-raised-button color="primary" (click)="isCollapsed = !isCollapsed"
+              [attr.aria-expanded]="!isCollapsed">Cargar Más</button>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,48 @@
+<div class="row pt-3">
+
+
+  <div class="col-md-4 mb-3" *ngFor="let padre of padres; let indice=index">
+    <div class="card  text-center" (click)="mostrarDetallePadre(padre)" *ngIf="indice<=5">
+      <div class="card-body">
+        <h5 class="card-title">{{padre.name}}</h5>
+        <img class="card-img-top" src="{{padre.img}}" height="180" width="286" alt="imagen SO">
+        <p class="card-text">{{padre.api}}</p>
+        <!--<a href="#" class="btn btn-primary">Buy Tickets</a>-->
+      </div>
+      <div class="card-footer text-muted">
+        fecha lanzamiento: {{padre.date}}
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4 mb-3" *ngFor="let padre of padres; let indice=index" [ngbCollapse]="isCollapsed">
+    <div class="card  text-center" (click)="mostrarDetallePadre(padre)" *ngIf="indice>5">
+      <div class="card-body">
+        <h5 class="card-title">{{padre.name}}</h5>
+        <img class="card-img-top" src="{{padre.img}}" height="180" width="286" alt="imagen SO">
+        <p class="card-text">{{padre.api}}</p>
+        <!--<a href="#" class="btn btn-primary">Buy Tickets</a>-->
+      </div>
+      <div class="card-footer text-muted">
+        fecha lanzamiento: {{padre.date}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row ">
+  <div *ngIf="padres">
+    <div class="col-sm-4" *ngIf="padres.length>5">
+      <button mat-raised-button color="primary" (click)="isCollapsed = !isCollapsed"
+              [attr.aria-expanded]="!isCollapsed">Cargar Más</button>
+    </div>
+  </div>
+
+</div>
+
+<!--<app-descripcion-padre [padre]="selectedPadre"></app-descripcion-padre>-->
+
+
+
+
