@@ -11,8 +11,10 @@ module.exports = {
 
     nombre:{type:'string',required:true},
     apellido:{type:'string',required:true},
-    correo:{type:'string',required:true},
+    correo:{type:'string',required:true,unique:true},
     direccion:{type:'string',required:true},
+    username:{type:'string', required:true,unique:true},
+    password:{type:'string', required:true,unique:true},
 
   },
 

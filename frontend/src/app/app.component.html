@@ -21,12 +21,12 @@
           <ul class="navbar-nav">
             <a class="nav-link"  style= "cursor:pointer" *ngIf="! _auth.loggedIn()" routerLink="/login" routerLinkActive="active">Login</a>
             <a class="nav-link"  style= "cursor:pointer" *ngIf="! _auth.loggedIn()" routerLink="/signup" routerLinkActive="active">Signup</a>
-            <!--<li class="nav-link" *ngIf="_auth.loggedIn()">-->
-            <!--<mat-icon matSuffix >account_circle</mat-icon>-->
+            <li class="nav-link" *ngIf="_auth.loggedIn()&&usuario">
+            <mat-icon matSuffix >account_circle</mat-icon>
 
-            <!--</li>-->
-            <!--<li class="nav-link" *ngIf="_auth.loggedIn()">{{usuario.nombre}}-->
-            <!--{{usuario.apellido}}</li>-->
+            </li>
+            <li class="nav-link" *ngIf="_auth.loggedIn() &&usuario">{{usuario.nombre}}
+            {{usuario.apellido}}</li>
             <a class="nav-link" style="cursor:pointer"   *ngIf="_auth.loggedIn()" (click)="_auth.logoutUser()">Logout</a>
           </ul>
         </div>
